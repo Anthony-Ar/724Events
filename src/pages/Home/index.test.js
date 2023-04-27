@@ -30,15 +30,19 @@ describe("When Form is created", () => {
 
 describe("When a page is created", () => {
   it("a list of events is displayed", () => {
-    // to implement
+    render(<Home />);
+    screen.queryAllByTestId("card-testid");
   })
   it("a list a people is displayed", () => {
-    // to implement
+    render(<Home />);
+    screen.queryAllByTestId("people-testid");
   })
   it("a footer is displayed", () => {
-    // to implement
+    render(<Home />);
+    screen.findByTestId("footer-testid");
   })
   it("an event card, with the last event, is displayed", () => {
-    // to implement
+    render(<Home />);
+    screen.findByTestId("lastEvent-testid");
   })
 });
