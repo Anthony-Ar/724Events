@@ -29,20 +29,22 @@ describe("When Form is created", () => {
 
 
 describe("When a page is created", () => {
-  it("a list of events is displayed", () => {
+  it("a list of events is displayed", async () => {
     render(<Home />);
-    screen.queryAllByTestId("card-testid");
+    const events = screen.queryAllByTestId("card-image-testid").length;
+    expect(events).toBeGreaterThan(1);
   })
-  it("a list a people is displayed", () => {
+  it("a list a people is displayed", async () => {
     render(<Home />);
-    screen.queryAllByTestId("people-testid");
+    const people = screen.queryAllByTestId("people-testid").length;
+    expect(people).toBe(6); 
   })
-  it("a footer is displayed", () => {
+  it("a footer is displayed", async () => {
     render(<Home />);
-    screen.findByTestId("footer-testid");
+    await screen.findByTestId("footer-testid");
   })
-  it("an event card, with the last event, is displayed", () => {
+  it("an event card, with the last event, is displayed", async () => {
     render(<Home />);
-    screen.findByTestId("lastEvent-testid");
+    waitFor(() => screen.findByTestId("lastEvent-testid"));
   })
 });
